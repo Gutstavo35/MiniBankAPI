@@ -1,0 +1,72 @@
+### Variáveis globais / Global variables
+@baseUrl = http://localhost:8080
+@id = 1
+
+### 1. Criar conta / Create account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "cpf": "123.456.789-00",
+  "name": "Maria Silva",
+  "amount": 1000.00
+}
+
+###
+
+### 2. Criar segunda conta / Create second account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "cpf": "987.654.321-00",
+  "name": "João Souza",
+  "amount": 500.00
+}
+
+###
+
+### 3. Listar contas / List accounts
+GET {{baseUrl}}/accounts
+
+###
+
+### 4. Buscar conta por ID / Get account by ID
+GET {{baseUrl}}/accounts/{{id}}
+
+###
+
+### 5. Depositar / Deposit
+PATCH {{baseUrl}}/accounts/{{id}}/deposit
+Content-Type: application/json
+
+{
+  "amount": 250.00
+}
+
+###
+
+### 6. Sacar / Withdraw
+PATCH {{baseUrl}}/accounts/{{id}}/withdraw
+Content-Type: application/json
+
+{
+  "amount": 300.00
+}
+
+###
+
+### 7. Erro: depósito com valor zero / Error: deposit with zero amount
+PATCH {{baseUrl}}/accounts/{{id}}/deposit
+Content-Type: application/json
+
+{
+  "amount": 0
+}
+
+###
+
+### 8. Erro: conta inexistente / Error: account not found
+GET {{baseUrl}}/accounts/9999
+
+###
