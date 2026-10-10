@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class AccountServices {
+public class AccountService {
     private final AccountRepository accountRepository;
 
-    public AccountServices(AccountRepository accountRepository) {
+    public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
