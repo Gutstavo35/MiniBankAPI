@@ -3,6 +3,8 @@ package luizgustavo.minibank.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name="accounts")
 public class Account {
@@ -12,7 +14,7 @@ public class Account {
     @Column(unique=true, length = 14)
     private String cpf;
     private String name;
-    private double amount;
+    private BigDecimal amount;
 
     public Long getId() {
         return id;
@@ -38,11 +40,11 @@ public class Account {
         this.name = name;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 }
